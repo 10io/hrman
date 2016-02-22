@@ -1,2 +1,8 @@
-<h2>New Employee</h2>
-<%= render :partial => "form" %>
+<%= render(:partial => "form", :layout => "modal", :locals => { :action => "New" }) %>
+<script>
+  $(function() {
+    $('#modal').modal('show').off('hidden.bs.modal').on('hidden.bs.modal', function() {
+      history.back()
+    })
+  })
+</script>

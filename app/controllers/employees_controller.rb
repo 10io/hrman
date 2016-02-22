@@ -7,28 +7,31 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @employee = Employee.new(employee_params)
-    if @employee.save
-      return redirect_to employees_path,
-             :notice => "Employee #{@employee.first_name} #{@employee.last_name} has been successfully created."
-    end
-
-    render :new
+    return unless @employee.save
+    redirect_to employees_path,
+                :notice => "Employee #{@employee.first_name} #{@employee.last_name} has been successfully created."
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
-    if @employee.update(employee_params)
-      return redirect_to employees_path,
-             :notice => "Employee #{@employee.first_name} #{@employee.last_name} has been successfully updated."
-    end
-
-    render :edit
+    return unless @employee.update(employee_params)
+    redirect_to employees_path,
+                :notice => "Employee #{@employee.first_name} #{@employee.last_name} has been successfully updated."
   end
 
   def destroy
