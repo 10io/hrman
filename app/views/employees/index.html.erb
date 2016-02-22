@@ -1,0 +1,19 @@
+<table class="table table-hover table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Department</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @employees %>
+  </tbody>
+</table>
+<%= link_to(new_employee_path, :class => "btn btn-success pull-left", :role => "button") do %>
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Employee
+<% end %>
