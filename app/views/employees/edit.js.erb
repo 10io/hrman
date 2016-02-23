@@ -1,5 +1,1 @@
-$('#modal').replaceWith('<%= j render(:partial => "form", :layout => "modal", :locals => { :action => "Edit" }) %>')
-$('#modal').modal('show').off('hidden.bs.modal').on('hidden.bs.modal', function() {
-  history.back()
-})
-history.pushState(null, null, '<%= edit_employee_url(@employee) %>')
+App.showModal('<%= j render(:partial => "form", :layout => "modal", :locals => { :action => "Edit" }) %>', '<%= edit_employee_url(@employee) %>', '<%= employees_url %>')
