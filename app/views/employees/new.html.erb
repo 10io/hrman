@@ -2,7 +2,7 @@
 <script>
   $(function() {
     $('#modal').modal('show').off('hidden.bs.modal').on('hidden.bs.modal', function() {
-      history.back()
+      Turbolinks.visit('<%= employees_url %>')
     })
   })
 </script>
